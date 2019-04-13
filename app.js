@@ -1,13 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
+import Blogger from './models/blogger.model'
 
 const app = express()
 const port = 3456
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/blog', {useNewUrlParser: true})
-
-const Blogger = mongoose.model('Blogger', { userName: String });
 
 app.get('/', (req, res) => res.send('Hello World from the blog system!'))
 
